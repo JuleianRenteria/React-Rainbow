@@ -1,12 +1,9 @@
-import React from 'react'
-
-function ColorBlock (props) {
-    return (
-        <div className='colorBlock'
-        style={{'backgroundColor': props.color}}>
+import React from "react"
+function ColorBlock(props){
+    return(
+        <div className="colorBlock" style={{'backgroundColor': props.color}}>
             <p>{props.color}</p>
         </div>
     )
 }
-
-export default ColorBlock;
+export default ColorBlock

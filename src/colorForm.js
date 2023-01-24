@@ -1,35 +1,19 @@
-import React, { useState } from 'react'
-import ColorBlock from './ColorBlock'
-import ColorForm from './ColorForm';
-import './App.css';
+import React, { useState } from "react";
 
+function ColorForm(props){
+    let [input,setInput] = useState('')
 
-function App(){
-    let colors = [
-        'violet', 'blue',
-        'lightblue', 'green',
-        'greenyellow', 'yellow',
-        'orange', 'red'
-    ]
-    
-    let colorMap = colors.map((color, i) => {
-        return (
-            <ColorBlock key={i} color={color} />
-        )
-    })
-    
-    const addColor = (newColor) => {
-        setColors([...colors, newColor])
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.addColor(input)
     }
-
-    return (
-        <div className="App">
-            {colorMap}
-            <ColorForm addColor={addColor} />
+    return(
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input type="text" onChange ={(e) => setInput (e.target.value)}/>
+                <button type="submit">Submit!</button>
+            </form>
         </div>
     )
-
 }
-
-
-export default App;
+export default ColorForm
